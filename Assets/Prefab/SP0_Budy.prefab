@@ -603,7 +603,7 @@ Animator:
   m_GameObject: {fileID: 2155612896566785173}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4e5fd1fb1eaf91944b4f52c7eddb25aa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 56750c8a11454194db6215cc49d08d4a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 2155612897396532430}
   m_Layer: 0
   m_Name: SP0_Budy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -674,14 +674,14 @@ MonoBehaviour:
   RotationCount: 0
   Inputs: 00000000000000000000000000000000
   SpiderAnimator:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2155612896267798210}
+  - {fileID: 2155612897858998866}
+  - {fileID: 2155612896401042088}
+  - {fileID: 2155612897924365256}
+  - {fileID: 2155612896484713605}
+  - {fileID: 2155612896250283997}
+  - {fileID: 2155612896257372654}
+  - {fileID: 2155612897610320772}
 --- !u!50 &2155612897396532401
 Rigidbody2D:
   serializedVersion: 4
