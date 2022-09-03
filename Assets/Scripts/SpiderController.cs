@@ -28,6 +28,8 @@ public class SpiderController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.P))
             {
                 Inputs[PressedCount] = 1;
+                SpiderAnimator[0].SetBool("move", true);
+                SpiderAnimator[6].SetBool("move", true);
                 PressedCount++;
                 Player_1_Pushed = true;
             }
@@ -37,6 +39,8 @@ public class SpiderController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.N))
             {
                 Inputs[PressedCount] = 2;
+                SpiderAnimator[1].SetBool("move", true);
+                SpiderAnimator[7].SetBool("move", true);
                 PressedCount++;
                 Player_2_Pushed = true;
             }
@@ -46,6 +50,8 @@ public class SpiderController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Inputs[PressedCount] = 3;
+                SpiderAnimator[2].SetBool("move", true);
+                SpiderAnimator[4].SetBool("move", true);
                 PressedCount++;
                 Player_3_Pushed = true;
             }
@@ -55,6 +61,8 @@ public class SpiderController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 Inputs[PressedCount] = 4;
+                SpiderAnimator[3].SetBool("move", true);
+                SpiderAnimator[5].SetBool("move", true);
                 PressedCount++;
                 Player_4_Pushed = true;
             }
@@ -67,6 +75,7 @@ public class SpiderController : MonoBehaviour
             Player_2_Pushed = false;
             Player_3_Pushed = false;
             Player_4_Pushed = false;
+            Invoke("AnimationLag", 0.25f);
             PressedCount = 0;
             for (int i = 0; i < Inputs.Length; i++)
             {
@@ -81,6 +90,13 @@ public class SpiderController : MonoBehaviour
     //        Forward((int)transform.rotation.eulerAngles.z,0.5f);
     //    }
     //}
+    public void AnimationLag()
+    {
+        for (int i = 0; i < SpiderAnimator.Length; i++)
+        {
+            SpiderAnimator[i].SetBool("move", false);
+        }
+    }
     public void Code_To_Movement(int Code)
     {
         switch(Code)
@@ -89,7 +105,7 @@ public class SpiderController : MonoBehaviour
             case 2431:
             case 4213:
             case 4231:
-                Forward(RotationCount, 1,0.5f);
+                Forward(RotationCount,0.5f,1f);
                 return;
             case 1324:
             case 3124:
