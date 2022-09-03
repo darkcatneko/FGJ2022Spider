@@ -13,6 +13,7 @@ public class SpiderController : MonoBehaviour
     public int PressedCount = 0;
     public int RotationCount;
     public int[] Inputs = new int[4];
+    public Animator[] SpiderAnimator = new Animator[8];
     void Start()
     {
         
@@ -22,7 +23,7 @@ public class SpiderController : MonoBehaviour
     void Update()
     {
         //TestUseInput();
-        if (Player_1_Pushed == false)
+        if (Player_1_Pushed == false&&Attacking == false)
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -31,7 +32,7 @@ public class SpiderController : MonoBehaviour
                 Player_1_Pushed = true;
             }
         }
-        if (Player_2_Pushed == false)
+        if (Player_2_Pushed == false && Attacking == false)
         {
             if (Input.GetKeyDown(KeyCode.N))
             {
@@ -40,7 +41,7 @@ public class SpiderController : MonoBehaviour
                 Player_2_Pushed = true;
             }
         }
-        if (Player_3_Pushed == false)
+        if (Player_3_Pushed == false && Attacking == false)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -49,7 +50,7 @@ public class SpiderController : MonoBehaviour
                 Player_3_Pushed = true;
             }
         }
-        if (Player_4_Pushed == false)
+        if (Player_4_Pushed == false && Attacking == false)
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
