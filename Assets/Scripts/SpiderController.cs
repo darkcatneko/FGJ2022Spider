@@ -77,7 +77,7 @@ public class SpiderController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Forward((int)transform.rotation.eulerAngles.x);
+            Forward((int)transform.rotation.eulerAngles.x,0.5f);
         }
     }
     public void Code_To_Movement(int Code)
@@ -88,7 +88,7 @@ public class SpiderController : MonoBehaviour
             case 2431:
             case 4213:
             case 4231:
-                Forward(RotationCount);
+                Forward(RotationCount,0.5f);
                 return;
             case 1324:
             case 3124:
@@ -145,8 +145,8 @@ public class SpiderController : MonoBehaviour
                 return;
         }
     }
-   public IEnumerator SpiderAttack()
-    {
+   //public IEnumerator SpiderAttack()
+   // {
         
-    }
+   // }
 }
