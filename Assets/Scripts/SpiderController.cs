@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class SpiderController : MonoBehaviour
 {
-    public float Speed; 
+    bool Attacking = false;
     public bool Player_1_Pushed = false;
     public bool Player_2_Pushed = false;
     public bool Player_3_Pushed = false;
@@ -21,7 +21,7 @@ public class SpiderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TestUseInput();
+        //TestUseInput();
         if (Player_1_Pushed == false)
         {
             if (Input.GetKeyDown(KeyCode.P))
@@ -73,13 +73,13 @@ public class SpiderController : MonoBehaviour
             }
         }
     }
-    public void TestUseInput()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Forward((int)transform.rotation.eulerAngles.x,0.5f);
-        }
-    }
+    //public void TestUseInput()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.W))
+    //    {
+    //        Forward((int)transform.rotation.eulerAngles.z,0.5f);
+    //    }
+    //}
     public void Code_To_Movement(int Code)
     {
         switch(Code)
@@ -88,12 +88,16 @@ public class SpiderController : MonoBehaviour
             case 2431:
             case 4213:
             case 4231:
-                Forward(RotationCount,0.5f);
+                Forward(RotationCount, 1,0.5f);
                 return;
             case 1324:
             case 3124:
             case 1342:
             case 3142:
+                if (Attacking ==false)
+                {
+                    StartCoroutine("SpiderAttack");
+                }
                 return;
             case 1234:
                 transform.DORotate(transform.rotation.eulerAngles + new Vector3(0, 0, 45),0.5f);
@@ -115,38 +119,45 @@ public class SpiderController : MonoBehaviour
                 return;
         }
     }
-    public void Forward(int Degree,float Speed)
+    public void Forward(int Degree,float Speed,float Distance)
     {
         switch((Degree+360)%360)
         {
             case 0:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, 1, 0), Speed);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, 1, 0)*Distance, Speed);
                 return;
             case 315:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 1, 0), Speed);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 1, 0) * Distance, Speed);
                 return;
             case 270:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 0, 0), Speed);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 0, 0) * Distance, Speed);
                 return;
             case 225:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, -1, 0), Speed);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, -1, 0) * Distance, Speed);
                 return;
             case 180:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, -1, 0), Speed);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, -1, 0) * Distance, Speed);
                 return;
             case 135:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, -1, 0), Speed);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, -1, 0) * Distance, Speed);
                 return;
             case 90:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 0, 0), Speed);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 0, 0) * Distance, Speed);
                 return;
             case 45:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 1, 0), Speed);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 1, 0) * Distance, Speed);
                 return;
         }
     }
-   //public IEnumerator SpiderAttack()
-   // {
-        
-   // }
+   public IEnumerator SpiderAttack()
+    {
+        Attacking = true;
+        Debug.Log(1);
+        Vector3 Past = transform.position;        
+        Forward(RotationCount,0.2f, 2f);
+        yield return new WaitForSeconds(0.4f);
+        this.GetComponent<Rigidbody2D>().DOMove(Past, 1.5f);
+        yield return new WaitForSeconds(1.5f);
+        Attacking = false;
+    }
 }
