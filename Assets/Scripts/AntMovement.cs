@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class AntMovement : MonoBehaviour
 {
+    public float speed;
+    
     Rigidbody2D rig;
     Transform play;
 
@@ -16,8 +18,13 @@ public class AntMovement : MonoBehaviour
 
     private void Update()
     {
+        
+    }
+
+    void escapePlayer()
+    {
         Vector3 move = transform.position - play.position;
-        rig.velocity = move.normalized * 3;
+        rig.velocity = move.normalized * speed;
         Debug.Log(move.normalized);
         float angle = -(Mathf.Atan2(move.x, move.y) * Mathf.Rad2Deg);
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -25,4 +32,18 @@ public class AntMovement : MonoBehaviour
         //transform.rotation = Quaternion.Lerp(, move, 0.01f);
         this.transform.DORotateQuaternion(q, 0.5f);
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+            escapePlayer();
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+            rig.velocity = Vector2.zero;
+    }
+
 }
