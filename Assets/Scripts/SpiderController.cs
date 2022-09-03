@@ -115,35 +115,38 @@ public class SpiderController : MonoBehaviour
                 return;
         }
     }
-    public void Forward(int Degree)
+    public void Forward(int Degree,float Speed)
     {
         switch((Degree+360)%360)
         {
             case 0:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, 1, 0), 0.5f);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, 1, 0), Speed);
                 return;
             case 315:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 1, 0), 0.5f);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 1, 0), Speed);
                 return;
             case 270:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 0, 0), 0.5f);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 0, 0), Speed);
                 return;
             case 225:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, -1, 0), 0.5f);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, -1, 0), Speed);
                 return;
             case 180:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, -1, 0), 0.5f);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, -1, 0), Speed);
                 return;
             case 135:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, -1, 0), 0.5f);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, -1, 0), Speed);
                 return;
             case 90:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 0, 0), 0.5f);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 0, 0), Speed);
                 return;
             case 45:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 1, 0), 0.5f);
+                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 1, 0), Speed);
                 return;
         }
     }
-   
+   public IEnumerator SpiderAttack()
+    {
+        
+    }
 }
