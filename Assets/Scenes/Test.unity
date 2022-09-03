@@ -771,7 +771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1165999876
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1200,6 +1200,23 @@ Transform:
   m_Father: {fileID: 840322737}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: -122.326}
+--- !u!1 &1789460087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5633920302293948512, guid: 22ebc94256e72b6438b401aa08987cb4, type: 3}
+  m_PrefabInstance: {fileID: 5633920301442971750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1789460088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789460087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94348e88204195549850248db86ab097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1937999114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,6 +1391,10 @@ PrefabInstance:
     - target: {fileID: 2155612897396532426, guid: a46a5a53e0bf5de459d181cc03a4748c, type: 3}
       propertyPath: m_Name
       value: SP0_Budy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155612897396532426, guid: a46a5a53e0bf5de459d181cc03a4748c, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2155612897396532428, guid: a46a5a53e0bf5de459d181cc03a4748c, type: 3}
       propertyPath: m_RootOrder
