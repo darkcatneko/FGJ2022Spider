@@ -11,7 +11,7 @@ public class PlayerData : MonoBehaviour
 
     public int RotationCount;
 
-     public int[] Insects_Count = new int[4];
+    int[] Insects_Count = new int[4];
 
     public Text[] Scores = new Text[4];
 
@@ -43,14 +43,13 @@ public class PlayerData : MonoBehaviour
             {
                 Biggest = Insects_Count[i];
                 NowWinner = i;
-                
-            }
-        }
-        if (Clear)
-        {
-            if (Insects_Count[NowWinner] < 3)
-            {
-                Clear = false;
+                if (Clear)
+                {
+                    if (Insects_Count[i]<3)
+                    {
+                        Clear = false;
+                    }
+                }
             }
         }
         if (Clear == false)
