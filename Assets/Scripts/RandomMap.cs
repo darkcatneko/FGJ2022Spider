@@ -7,7 +7,8 @@ public class RandomMap : MonoBehaviour
     public float 地圖長, 地圖寬;
     public float 障礙物距離 = 10;
     public List<GameObject> 障礙物預製體;
-    
+    public List<GameObject> 獵物預製體;
+
 
     void Start()
     {
@@ -21,13 +22,14 @@ public class RandomMap : MonoBehaviour
         {
             for (int j = 0; j < 地圖寬 / 障礙物距離; j++)
             {
-                print("生成");
-                var 新物件 = Instantiate(障礙物預製體[Random.RandomRange(0, 障礙物預製體.Count - 1)], transform.position, Quaternion.identity);
-                新物件.transform.position = new Vector2(i * 障礙物距離 + Random.RandomRange(-4f,4f) - 地圖長/2, j * 障礙物距離 + Random.RandomRange(-4f, 4f) - 地圖寬/2);
-                新物件.transform.parent = transform.GetChild(0);
-                if(新物件.TryGetComponent(out AntMovement antMovement))
+                if(i== 地圖長 / 障礙物距離 / 2 && j == 地圖寬 / 障礙物距離 / 2)
                 {
-                    antMovement.初始化(新物件.transform.position);
+                    print(地圖長 / 障礙物距離 / 2);
+                    print(地圖寬 / 障礙物距離 / 2);
+                }
+                else
+                {
+                    生成(i,j);
                 }
             }
         }
@@ -35,8 +37,24 @@ public class RandomMap : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void 生成(int i , int j)
     {
-        
+        GameObject 生成物;
+        int 生成機率 = Random.Range(0, 3);
+        if (生成機率 == 0)
+        {
+            生成物 = 障礙物預製體[Random.RandomRange(0, 障礙物預製體.Count - 1)];
+        }
+        else
+        {
+            生成物 = 獵物預製體[Random.RandomRange(0, 獵物預製體.Count - 1)];
+        }
+        var 新物件 = Instantiate(生成物, transform.position, Quaternion.identity);
+        新物件.transform.position = new Vector2(i * 障礙物距離 + Random.RandomRange(-4f, 4f) - 地圖長 / 2, j * 障礙物距離 + Random.RandomRange(-4f, 4f) - 地圖寬 / 2);
+        新物件.transform.parent = transform.GetChild(0);
+        if (新物件.TryGetComponent(out AntMovement antMovement))
+        {
+            antMovement.初始化(新物件.transform.position);
+        }
     }
 }
