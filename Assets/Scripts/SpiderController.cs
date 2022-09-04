@@ -5,18 +5,19 @@ using DG.Tweening;
 
 public class SpiderController : MonoBehaviour
 {
+    public Rigidbody2D PlayerRigi;
+
     bool Attacking = false;
     public bool Player_1_Pushed = false;
     public bool Player_2_Pushed = false;
     public bool Player_3_Pushed = false;
     public bool Player_4_Pushed = false;
     public int PressedCount = 0;
-    public int RotationCount;
     public int[] Inputs = new int[4];
     public Animator[] SpiderAnimator = new Animator[8];
     void Start()
     {
-        
+        PlayerRigi = this.GetComponentInParent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -105,7 +106,7 @@ public class SpiderController : MonoBehaviour
             case 2431:
             case 4213:
             case 4231:
-                Forward(RotationCount,0.5f,1f);
+                Forward(PlayerData.instance.RotationCount, 0.5f,1f);
                 return;
             case 1324:
             case 3124:
@@ -117,20 +118,20 @@ public class SpiderController : MonoBehaviour
                 }
                 return;
             case 1234:
-                transform.DORotate(transform.rotation.eulerAngles + new Vector3(0, 0, 45),0.5f);
-                RotationCount += 45;
-                if (RotationCount>=360)
+                PlayerRigi.transform.DORotate(PlayerRigi.transform.rotation.eulerAngles + new Vector3(0, 0, 45),0.5f);
+                PlayerData.instance.RotationCount += 45;
+                if (PlayerData.instance.RotationCount >= 360)
                 {
-                    RotationCount = 0;
+                    PlayerData.instance.RotationCount = 0;
                 }                
                 return;
             case 4321:
-                transform.DORotate(transform.rotation.eulerAngles + new Vector3(0, 0, -45), 0.5f);
-                if (RotationCount<= -360)
+                PlayerRigi.transform.DORotate(PlayerRigi.transform.rotation.eulerAngles + new Vector3(0, 0, -45), 0.5f);
+                if (PlayerData.instance.RotationCount <= -360)
                 {
-                    RotationCount = 0;
+                    PlayerData.instance.RotationCount = 0;
                 }
-                RotationCount -= 45;
+                PlayerData.instance.RotationCount -= 45;
                 return;
             default:
                 return;
@@ -141,28 +142,28 @@ public class SpiderController : MonoBehaviour
         switch((Degree+360)%360)
         {
             case 0:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, 1, 0)*Distance, Speed);
+                PlayerRigi.transform.DOMove(transform.position + new Vector3(0, 1, 0)*Distance, Speed);
                 return;
             case 315:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 1, 0) * Distance, Speed);
+                PlayerRigi.transform.DOMove(transform.position + new Vector3(1, 1, 0) * Distance, Speed);
                 return;
             case 270:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, 0, 0) * Distance, Speed);
+                PlayerRigi.transform.DOMove(transform.position + new Vector3(1, 0, 0) * Distance, Speed);
                 return;
             case 225:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(1, -1, 0) * Distance, Speed);
+                PlayerRigi.transform.DOMove(transform.position + new Vector3(1, -1, 0) * Distance, Speed);
                 return;
             case 180:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(0, -1, 0) * Distance, Speed);
+                PlayerRigi.transform.DOMove(transform.position + new Vector3(0, -1, 0) * Distance, Speed);
                 return;
             case 135:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, -1, 0) * Distance, Speed);
+                PlayerRigi.transform.DOMove(transform.position + new Vector3(-1, -1, 0) * Distance, Speed);
                 return;
             case 90:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 0, 0) * Distance, Speed);
+                PlayerRigi.transform.DOMove(transform.position + new Vector3(-1, 0, 0) * Distance, Speed);
                 return;
             case 45:
-                this.GetComponent<Rigidbody2D>().DOMove(transform.position + new Vector3(-1, 1, 0) * Distance, Speed);
+                PlayerRigi.transform.DOMove(transform.position + new Vector3(-1, 1, 0) * Distance, Speed);
                 return;
         }
     }
@@ -171,9 +172,9 @@ public class SpiderController : MonoBehaviour
         Attacking = true;
         Debug.Log(1);
         Vector3 Past = transform.position;        
-        Forward(RotationCount,0.2f, 2f);
+        Forward(PlayerData.instance.RotationCount, 0.2f,10f);
         yield return new WaitForSeconds(0.4f);
-        this.GetComponent<Rigidbody2D>().DOMove(Past, 1.5f);
+        PlayerRigi.transform.DOMove(Past, 1.5f);
         yield return new WaitForSeconds(1.5f);
         Attacking = false;
     }

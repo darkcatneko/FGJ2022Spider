@@ -9,6 +9,8 @@ public class PlayerData : MonoBehaviour
 
     public static PlayerData instance = new PlayerData();
 
+    public int RotationCount;
+
     int[] Insects_Count = new int[4];
 
     public Text[] Scores = new Text[4];
