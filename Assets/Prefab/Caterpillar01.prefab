@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8883310022330201453}
   - component: {fileID: 8883310022330201454}
   - component: {fileID: 7314896442891083321}
+  - component: {fileID: 2575217142352279162}
   m_Layer: 0
   m_Name: Caterpillar01
   m_TagString: Untagged
@@ -165,3 +166,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   This_insect: 1
+--- !u!114 &2575217142352279162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883310022330201442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de161c03f1ea7e4eb46ba38a14dec31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
