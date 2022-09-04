@@ -13,7 +13,7 @@ public class PreyTrigger : MonoBehaviour
             Timer.instance.AddTime(This_insect);
             PlayerData.instance.AddCount(This_insect);
             Destroy(this.gameObject);
-            Instantiate(PlayerData.instance.test,transform.position,Quaternion.identity);
+            //Instantiate(PlayerData.instance.test,transform.position,Quaternion.identity);
         }
     }
 }

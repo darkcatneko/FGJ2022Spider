@@ -112,7 +112,7 @@ public class SpiderController : MonoBehaviour
             case 4213:
             case 4231:
                 PlayerData.instance.audio.Play_spider_sound();
-                Forward(PlayerData.instance.RotationCount, 0.5f,1f);
+                Forward(PlayerData.instance.RotationCount, 0.5f,3.5f);
                 return;
             case 1324:
             case 3124:
