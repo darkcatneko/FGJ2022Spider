@@ -9,7 +9,7 @@ public class PlayerData : MonoBehaviour
 
     public GameObject test;
 
-    public static PlayerData instance = new PlayerData();
+    public static PlayerData instance;
 
     public int RotationCount;
 
@@ -45,15 +45,14 @@ public class PlayerData : MonoBehaviour
             {
                 Biggest = Insects_Count[i];
                 NowWinner = i;
-                if (Clear)
-                {
-                    if (Insects_Count[i]<3)
+                
+            }
+        }
+         if (Insects_Count[NowWinner]<3)
                     {
                         Clear = false;
                     }
-                }
-            }
-        }
+                
         if (Clear == false)
         {
             return EndingCG[4];

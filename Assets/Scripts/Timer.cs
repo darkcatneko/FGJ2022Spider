@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public static Timer instance = new Timer();
+    public static Timer instance;
 
-    GameState state = GameState.Start;
+     public GameState state = GameState.Wait;
 
     float Total_Time;
     public float Last_Time = 60f;
@@ -34,10 +34,14 @@ public class Timer : MonoBehaviour
         {
             Last_Time -= Time.deltaTime;
         }
-        else
+        else if (state == GameState.Start)
+        {
+            state = GameState.End;
+        }
+        if (state == GameState.End)
         {
             Ending_Pic.SetActive(true);
-            Ending_Pic.GetComponent<Image>().sprite = PlayerData.instance.Ending();
+            Ending_Pic.GetComponentInChildren<Image>().sprite = PlayerData.instance.Ending();
         }
         UI_Fill.fillAmount = Last_Time / Total_Time;
     }
@@ -75,6 +79,7 @@ public enum Insect
 }
 public enum GameState
 {
+    Wait,
     Start,
     End,
 }
