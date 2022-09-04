@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerData : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PlayerData : MonoBehaviour
 
     int[] Insects_Count = new int[4];
 
-    public Text[] Scores = new Text[4];
+    public TextMeshProUGUI[] Scores = new TextMeshProUGUI[4];
 
     public Sprite[] EndingCG = new Sprite[5];
 
