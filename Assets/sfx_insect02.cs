@@ -5,19 +5,20 @@ using UnityEngine;
 public class sfx_insect02 : MonoBehaviour
 {
     AudioManager audioManager;
-    public bool playSfx = true;
-    public float waitToPlaySfxTime = 2f;
+    private float elapseTime;
+    private float waitTime = 2.3f;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        InvokeRepeating(nameof(audioManager.Play_insect02), 0, waitToPlaySfxTime);
     }
-    private void Update()
+    void Update()
     {
-        if (!playSfx)
+        elapseTime += Time.deltaTime;
+        if (elapseTime > waitTime)
         {
-            CancelInvoke(nameof(audioManager.Play_insect02));
+            audioManager.Play_insect02();
+            elapseTime = 0;
         }
     }
 }
