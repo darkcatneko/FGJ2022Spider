@@ -6167,8 +6167,8 @@ MonoBehaviour:
   RotationCount: 0
   Scores:
   - {fileID: 56327653}
-  - {fileID: 1717295784}
   - {fileID: 879985932}
+  - {fileID: 1717295784}
   - {fileID: 2041357192}
   EndingCG:
   - {fileID: 21300000, guid: 463887805a4962045b403e193c920447, type: 3}
