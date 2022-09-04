@@ -34,10 +34,11 @@ public class Timer : MonoBehaviour
         {
             Last_Time -= Time.deltaTime;
         }
-        else
+        else if(state == GameState.Start)
         {
+            state = GameState.End;
             Ending_Pic.SetActive(true);
-            Ending_Pic.GetComponent<Image>().sprite = PlayerData.instance.Ending();
+            Ending_Pic.GetComponentInChildren<Image>().sprite = PlayerData.instance.Ending();
         }
         UI_Fill.fillAmount = Last_Time / Total_Time;
     }
