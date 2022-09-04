@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class SpiderController : MonoBehaviour
 {
+
     public Rigidbody2D PlayerRigi;
 
     bool Attacking = false;
@@ -28,6 +29,7 @@ public class SpiderController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
+                PlayerData.instance.audio.Play_spider_step1();
                 Inputs[PressedCount] = 1;
                 SpiderAnimator[0].SetBool("move", true);
                 SpiderAnimator[6].SetBool("move", true);
@@ -39,6 +41,7 @@ public class SpiderController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.N))
             {
+                PlayerData.instance.audio.Play_spider_step1();
                 Inputs[PressedCount] = 2;
                 SpiderAnimator[1].SetBool("move", true);
                 SpiderAnimator[7].SetBool("move", true);
@@ -50,6 +53,7 @@ public class SpiderController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                PlayerData.instance.audio.Play_spider_step2();
                 Inputs[PressedCount] = 3;
                 SpiderAnimator[2].SetBool("move", true);
                 SpiderAnimator[4].SetBool("move", true);
@@ -61,6 +65,7 @@ public class SpiderController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
+                PlayerData.instance.audio.Play_spider_step2();
                 Inputs[PressedCount] = 4;
                 SpiderAnimator[3].SetBool("move", true);
                 SpiderAnimator[5].SetBool("move", true);
@@ -106,6 +111,7 @@ public class SpiderController : MonoBehaviour
             case 2431:
             case 4213:
             case 4231:
+                PlayerData.instance.audio.Play_spider_sound();
                 Forward(PlayerData.instance.RotationCount, 0.5f,1f);
                 return;
             case 1324:
@@ -134,12 +140,14 @@ public class SpiderController : MonoBehaviour
                 PlayerData.instance.RotationCount -= 45;
                 return;
             default:
+                PlayerData.instance.audio.Play_error();
                 return;
         }
     }
     public void Forward(int Degree,float Speed,float Distance)
     {
-        switch((Degree+360)%360)
+        PlayerData.instance.audio.Play_spider_sound();
+        switch ((Degree+360)%360)
         {
             case 0:
                 PlayerRigi.transform.DOMove(transform.position + new Vector3(0, 1, 0)*Distance, Speed);
@@ -169,6 +177,7 @@ public class SpiderController : MonoBehaviour
     }
    public IEnumerator SpiderAttack()
     {
+        PlayerData.instance.audio.Play_spider_attack();
         Attacking = true;
         Debug.Log(1);
         Vector3 Past = transform.position;        
