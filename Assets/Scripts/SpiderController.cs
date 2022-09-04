@@ -25,7 +25,7 @@ public class SpiderController : MonoBehaviour
     void Update()
     {
         //TestUseInput();
-        if (Player_1_Pushed == false&&Attacking == false)
+        if (Player_1_Pushed == false&&Attacking == false&&Timer.instance.state == GameState.Start)
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -37,7 +37,7 @@ public class SpiderController : MonoBehaviour
                 Player_1_Pushed = true;
             }
         }
-        if (Player_2_Pushed == false && Attacking == false)
+        if (Player_2_Pushed == false && Attacking == false && Timer.instance.state == GameState.Start)
         {
             if (Input.GetKeyDown(KeyCode.N))
             {
@@ -49,7 +49,7 @@ public class SpiderController : MonoBehaviour
                 Player_2_Pushed = true;
             }
         }
-        if (Player_3_Pushed == false && Attacking == false)
+        if (Player_3_Pushed == false && Attacking == false && Timer.instance.state == GameState.Start)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -61,7 +61,7 @@ public class SpiderController : MonoBehaviour
                 Player_3_Pushed = true;
             }
         }
-        if (Player_4_Pushed == false && Attacking == false)
+        if (Player_4_Pushed == false && Attacking == false && Timer.instance.state == GameState.Start)
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
@@ -178,6 +178,7 @@ public class SpiderController : MonoBehaviour
    public IEnumerator SpiderAttack()
     {
         PlayerData.instance.audio.Play_spider_attack();
+        Timer.instance.state = GameState.Attack;
         Attacking = true;
         Debug.Log(1);
         Vector3 Past = transform.position;        
@@ -186,5 +187,7 @@ public class SpiderController : MonoBehaviour
         PlayerRigi.transform.DOMove(Past, 1.5f);
         yield return new WaitForSeconds(1.5f);
         Attacking = false;
+        PlayerData.instance.SkinUpdate();
+        Timer.instance.state = GameState.Start;
     }
 }

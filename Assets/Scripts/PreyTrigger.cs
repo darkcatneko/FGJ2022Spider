@@ -8,10 +8,10 @@ public class PreyTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("HitBox")&&this.CompareTag("Prey"))
+        if (collision.CompareTag("HitBox")&&this.CompareTag("Prey")&&Timer.instance.state == GameState.Attack)
         {
             Timer.instance.AddTime(This_insect);
-            PlayerData.instance.AddCount(This_insect);
+            PlayerData.instance.AddCount(This_insect);            
             Destroy(this.gameObject);
             //Instantiate(PlayerData.instance.test,transform.position,Quaternion.identity);
         }

@@ -18,6 +18,8 @@ public class PlayerData : MonoBehaviour
     public Text[] Scores = new Text[4];
 
     public Sprite[] EndingCG = new Sprite[5];
+
+    public GameObject[] SpiderBody = new GameObject[5];
     private void Awake()
     {
         instance = this;
@@ -33,6 +35,33 @@ public class PlayerData : MonoBehaviour
         {
             Scores[i].text = Insects_Count[i].ToString();
         }
+    }
+    public void SkinUpdate()
+    {
+        int NowWinner = 4;
+        int Biggest = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            if (Insects_Count[i] >= Biggest)
+            {
+                Biggest = Insects_Count[i];
+                if (Biggest<3)
+                {
+                    NowWinner = 4;
+                }
+                else
+                {
+                    NowWinner = i;
+                }
+                
+
+            }
+        }
+        for (int i = 0; i < SpiderBody.Length; i++)
+        {
+            SpiderBody[i].SetActive(false);
+        }
+        SpiderBody[NowWinner].SetActive(true);
     }
     public Sprite Ending()
     {

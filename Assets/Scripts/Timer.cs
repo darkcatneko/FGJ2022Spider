@@ -30,11 +30,11 @@ public class Timer : MonoBehaviour
 
     void Update()
     {        
-        if (Last_Time>0&&state == GameState.Start)
+        if (Last_Time>0&&(state == GameState.Start||state == GameState.Attack))
         {
             Last_Time -= Time.deltaTime;
         }
-        else if (state == GameState.Start)
+        else if (state == GameState.Start || state == GameState.Attack)
         {
             state = GameState.End;
         }
@@ -82,4 +82,5 @@ public enum GameState
     Wait,
     Start,
     End,
+    Attack,
 }
