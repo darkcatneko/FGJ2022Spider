@@ -1735,7 +1735,7 @@ Transform:
   m_GameObject: {fileID: 1165999875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 32.135998, y: 32.135998, z: 1.6068}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2365,6 +2365,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1705255011}
+  - component: {fileID: 1705255013}
+  - component: {fileID: 1705255012}
   m_Layer: 0
   m_Name: ===UI===
   m_TagString: Untagged
@@ -2386,6 +2388,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705255012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705255010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a93750dd482164f971a9271ff890cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Last_Time: 60
+  Ant_Time: 0
+  Caterpillar_Time: 0
+  Aphid_Time: 0
+  LadyBug_Time: 0
+  UI_Fill: {fileID: 1227931918}
+  Ending_Pic: {fileID: 0}
+--- !u!114 &1705255013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705255010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64053aa924d5c34d9c1fcd9c9c8e9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scores:
+  - {fileID: 670916455}
+  - {fileID: 2058819775}
+  - {fileID: 411652626}
+  - {fileID: 1707486071}
+  EndingCG:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1707486069
 GameObject:
   m_ObjectHideFlags: 0
