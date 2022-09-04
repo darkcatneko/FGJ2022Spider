@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerData : MonoBehaviour
 {
+    public AudioManager audio;
+
     public GameObject test;
 
     public static PlayerData instance = new PlayerData();
