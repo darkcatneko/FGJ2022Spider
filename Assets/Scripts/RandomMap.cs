@@ -23,7 +23,7 @@ public class RandomMap : MonoBehaviour
             {
                 print("生成");
                 var 新物件 = Instantiate(障礙物預製體[Random.RandomRange(0, 障礙物預製體.Count - 1)], transform.position, Quaternion.identity);
-                新物件.transform.position = new Vector2(i * 障礙物距離 + Random.RandomRange(-2f,2f) - 地圖長/2, j * 障礙物距離 + Random.RandomRange(-2f, 2f) - 地圖寬/2);
+                新物件.transform.position = new Vector2(i * 障礙物距離 + Random.RandomRange(-4f,4f) - 地圖長/2, j * 障礙物距離 + Random.RandomRange(-4f, 4f) - 地圖寬/2);
                 新物件.transform.parent = transform.GetChild(0);
             }
         }
