@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 293536157131696248}
   m_Layer: 0
   m_Name: ant01
-  m_TagString: Untagged
+  m_TagString: Prey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 98cd8940129b8574d81b365d1c8bf06d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94348e88204195549850248db86ab097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 1
 --- !u!114 &-5409043810290952902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,3 +192,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0bd2ff76a8bb44e88e776385e61691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playSfx: 1
+  waitToPlaySfxTime: 2

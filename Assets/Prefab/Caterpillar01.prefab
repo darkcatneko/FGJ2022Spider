@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2575217142352279162}
   m_Layer: 0
   m_Name: Caterpillar01
-  m_TagString: Untagged
+  m_TagString: Prey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,3 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de161c03f1ea7e4eb46ba38a14dec31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playSfx: 1
+  waitToPlaySfxTime: 2

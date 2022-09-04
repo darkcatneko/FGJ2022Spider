@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 5417103202642762337}
   - component: {fileID: -8441395690520890338}
   - component: {fileID: 4193232400706824700}
+  - component: {fileID: 2090523638}
   m_Layer: 0
   m_Name: ladybug01
-  m_TagString: Untagged
+  m_TagString: Prey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,5 +177,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 449724b44cc204f4da31a897feeaa601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSfx: 1
+  waitToPlaySfxTime: 2
+--- !u!114 &2090523638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5417103202642762341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20444b3967fed5b44b6f3555c4ee28e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
