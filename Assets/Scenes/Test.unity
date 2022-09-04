@@ -3152,9 +3152,25 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6679235161606010821, guid: bbcc4407d6d2ab0488784c1b32ff8e30, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679235161606010821, guid: bbcc4407d6d2ab0488784c1b32ff8e30, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6679235161769605939, guid: bbcc4407d6d2ab0488784c1b32ff8e30, type: 3}
       propertyPath: m_Volume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679235162394987910, guid: bbcc4407d6d2ab0488784c1b32ff8e30, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679235162394987910, guid: bbcc4407d6d2ab0488784c1b32ff8e30, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6679235162427580208, guid: bbcc4407d6d2ab0488784c1b32ff8e30, type: 3}
       propertyPath: m_Volume
@@ -5694,10 +5710,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   Last_Time: 60
-  Ant_Time: 0
-  Caterpillar_Time: 0
-  Aphid_Time: 0
-  LadyBug_Time: 0
+  Ant_Time: 6
+  Caterpillar_Time: 4
+  Aphid_Time: 10
+  LadyBug_Time: 8
   UI_Fill: {fileID: 1227931918}
   Ending_Pic: {fileID: 885310897}
 --- !u!114 &1705255013
