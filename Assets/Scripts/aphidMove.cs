@@ -18,9 +18,24 @@ public class aphidMove : MonoBehaviour
         play = GameObject.FindWithTag("Player").transform;
     }
 
+    bool isSleep = false;
     private void Update()
     {
-
+        if(是否抵達指定位置(transform.position,play.position))
+        {
+            escapePlayer();
+        }
+        else
+        {
+            /*
+            if (!isSleep)
+            {
+                rig.Sleep();
+                isSleep = true;
+            }
+            */
+            rig.velocity = Vector2.zero;
+        }
     }
 
     void escapePlayer()
@@ -34,16 +49,9 @@ public class aphidMove : MonoBehaviour
         this.transform.DORotateQuaternion(q, 0.5f);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-            escapePlayer();
 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    bool 是否抵達指定位置(Vector3 自己, Vector3 目標位置)
     {
-        if (collision.transform.CompareTag("Player"))
-            rig.velocity = Vector2.zero;
+        return (Vector3.Distance(自己, 目標位置) <= 7);
     }
 }
