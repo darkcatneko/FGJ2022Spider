@@ -3189,7 +3189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1392201969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3818,6 +3818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64053aa924d5c34d9c1fcd9c9c8e9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 0}
   test: {fileID: 5802604040883495848, guid: 54e152a82ddb30e499f0347e6da44625, type: 3}
   RotationCount: 0
   Scores:
