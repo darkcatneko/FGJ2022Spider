@@ -10,20 +10,26 @@ public class AntMovement : MonoBehaviour
     public float speed;
     
     Rigidbody2D rig;
-    Vector2 origin;
+    public Vector2 origin;
     Vector3 NextPos;
     //Transform play;
 
     private void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
-        nextPoint();
+        //nextPoint();
         //play = GameObject.FindWithTag("Player").transform;
     }
 
     private void Start()
     {
-        origin = transform.position;
+        //origin = transform.position;
+    }
+
+    public void 初始化(Vector2 初始位置)
+    {
+        origin = 初始位置;
+        nextPoint();
     }
 
     void nextPoint()

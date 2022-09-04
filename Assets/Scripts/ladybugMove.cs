@@ -10,11 +10,15 @@ public class ladybugMove : MonoBehaviour
     float countdown;
     private void Awake()
     {
-        origin = transform.position;
         countdown = 2;
     }
 
-    
+
+    private void Start()
+    {
+        origin = transform.position;
+    }
+
     void Update()
     {
         if(countdown <= 0)
