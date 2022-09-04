@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerData : MonoBehaviour
 {
+    public GameObject test;
+
     public static PlayerData instance = new PlayerData();
 
     int[] Insects_Count = new int[4];

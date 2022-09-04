@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer instance = new Timer();
+
     GameState state = GameState.Start;
 
     float Total_Time;
@@ -17,6 +19,10 @@ public class Timer : MonoBehaviour
 
     public Image UI_Fill;
     public GameObject Ending_Pic;
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         Total_Time = Last_Time;        
