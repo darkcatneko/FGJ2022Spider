@@ -40,8 +40,10 @@ public class aphidMove : MonoBehaviour
 
     void escapePlayer()
     {
+        // 角色移動
         Vector3 move = transform.position - play.position;
         rig.velocity = move.normalized * speed;
+        // 角色轉向
         float angle = -(Mathf.Atan2(move.x, move.y) * Mathf.Rad2Deg);
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 10);

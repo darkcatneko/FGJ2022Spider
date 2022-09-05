@@ -43,14 +43,14 @@ public class RandomMap : MonoBehaviour
         int 生成機率 = Random.Range(0, 3);
         if (生成機率 == 0)
         {
-            生成物 = 障礙物預製體[Random.RandomRange(0, 障礙物預製體.Count - 1)];
+            生成物 = 障礙物預製體[Random.Range(0, 障礙物預製體.Count - 1)];
         }
         else
         {
-            生成物 = 獵物預製體[Random.RandomRange(0, 獵物預製體.Count - 1)];
+            生成物 = 獵物預製體[Random.Range(0, 獵物預製體.Count - 1)];
         }
         var 新物件 = Instantiate(生成物, transform.position, Quaternion.identity);
-        新物件.transform.position = new Vector2(i * 障礙物距離 + Random.RandomRange(-4f, 4f) - 地圖長 / 2, j * 障礙物距離 + Random.RandomRange(-4f, 4f) - 地圖寬 / 2);
+        新物件.transform.position = new Vector2(i * 障礙物距離 + Random.Range(-4f, 4f) - 地圖長 / 2, j * 障礙物距離 + Random.Range(-4f, 4f) - 地圖寬 / 2);
         新物件.transform.parent = transform.GetChild(0);
         if (新物件.TryGetComponent(out AntMovement antMovement))
         {
